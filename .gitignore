@@ -61,5 +61,6 @@ typings/
 .next
 
 build
+public
 
 yarn.lock
