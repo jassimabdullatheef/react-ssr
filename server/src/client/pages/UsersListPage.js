@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { fetchUsers } from '../actions'
+import Navigation from '../components/Navigation'
 
 class UsersList extends Component {
   componentDidMount() {
@@ -16,6 +17,7 @@ class UsersList extends Component {
   render() {
     return (
       <div>
+        <Navigation />
         <h1>This is a big list of users</h1>
         <ul>{this.renderUsers()}</ul>
       </div>
@@ -27,7 +29,11 @@ function mapStateToProps(state) {
   return { users: state.users }
 }
 
-export default connect(
-  mapStateToProps,
-  { fetchUsers }
-)(UsersList)
+function getInitialProps(store) {
+  return store.dispatch(fetchUsers())
+}
+
+export default {
+  component: connect( mapStateToProps, { fetchUsers })(UsersList),
+  getInitialProps
+}
