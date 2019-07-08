@@ -20,7 +20,7 @@ app.get('*', (req, res) => {
   const store = createStore(req)
 
   const promises = matchRoutes(Routes, req.path).map(({route}) => {
-    return route.getInitialProps ? route.getInitialProps(store) : null
+    return route.getInitialProps ? route.getInitialProps(store.dispatch) : null
   })
 
   Promise.all(promises).then(() => {

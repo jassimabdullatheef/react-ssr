@@ -64,3 +64,5 @@ build
 public
 
 yarn.lock
+
+.vscode
