@@ -1,14 +1,14 @@
-import React from 'react'
+import React, { Component } from 'react'
 
-const Home = () => {
-  return (
-    <div>
-      <h1>This is crazy</h1>
-      <button onClick={() => console.log('Hi ther!')}>Press Me</button>
-    </div>
-  )
+class Home extends Component {
+  render() {
+    return (
+      <div>
+        <h1>This is crazy</h1>
+        <button onClick={() => console.log('Hi ther!')}>Press Me</button>
+      </div>
+    )
+  }
 }
 
-export default {
-  component: Home
-}
+export default Home

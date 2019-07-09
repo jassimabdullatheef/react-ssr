@@ -23,15 +23,12 @@ class UsersList extends Component {
   }
 }
 
+UsersList.getInitialProps = dispatch => {
+  return dispatch(fetchUsers())
+}
+
 function mapStateToProps(state) {
   return { users: state.users }
 }
 
-function getInitialProps(dispatch) {
-  return dispatch(fetchUsers())
-}
-
-export default {
-  component: connect( mapStateToProps, { fetchUsers })(UsersList),
-  getInitialProps
-}
+export default connect( mapStateToProps, { fetchUsers })(UsersList)

@@ -8,8 +8,8 @@ export default [
   {
     ...App,
     routes: [
-      { ...HomePage, path: '/', exact: true },
-      { ...UserListPage, path: '/users' }
+      { component: HomePage, path: '/', exact: true },
+      { component: UserListPage, path: '/users' }
     ]
   }
 ]
