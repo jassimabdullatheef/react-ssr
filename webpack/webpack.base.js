@@ -1,4 +1,7 @@
+const LoadablePlugin = require('@loadable/webpack-plugin')
+
 module.exports = {
+  mode: 'production',
   module: {
     rules: [
       {
@@ -7,10 +10,9 @@ module.exports = {
         exclude: [/node_modules/],
         options: {
           presets: [
-            'react',
-            'stage-0',
+            '@babel/preset-react',
             [
-              'env',
+              '@babel/preset-env',
               {
                 targets: {
                   browsers: ['last 2 versions']
@@ -21,5 +23,6 @@ module.exports = {
         }
       }
     ]
-  }
+  },
+  plugins: [new LoadablePlugin()]
 }
