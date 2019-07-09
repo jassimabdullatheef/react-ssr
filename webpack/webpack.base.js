@@ -4,7 +4,7 @@ module.exports = {
       {
         test: /\.js?$/,
         loader: 'babel-loader',
-        exclude: [/node_modules/, /build/, /public/],
+        exclude: [/node_modules/],
         options: {
           presets: [
             'react',
