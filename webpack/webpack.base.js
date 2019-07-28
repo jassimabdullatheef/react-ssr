@@ -24,5 +24,10 @@ module.exports = {
       }
     ]
   },
-  plugins: [new LoadablePlugin()]
+  // optimization: {
+  //   splitChunks: {
+  //     chunks: 'all'
+  //   }
+  // },
+  plugins: [new LoadablePlugin({ filename: '../build/loadable-stats.json', writeToDisk: true })]
 }

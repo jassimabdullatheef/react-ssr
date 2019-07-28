@@ -4,10 +4,16 @@
   "description": "Server side rendering project",
   "main": "src/index.js",
   "scripts": {
+    "clean": "rm -rf build && rm -rf public && rm -rf node_modules",
     "dev": "npm-run-all --parallel dev:*",
     "dev:server": "nodemon --watch build --exec \"node build/bundle.js\"",
     "dev:build-server": "webpack --config ./webpack/webpack.server.js --watch",
-    "dev:build-client": "webpack --config ./webpack/webpack.client.js --watch"
+    "dev:build-client": "webpack --config ./webpack/webpack.client.js --watch",
+    "prod:start": "npm run prod:setup && npm run prod:server",
+    "prod:server": "node build/bundle.js",
+    "prod:setup": "npm install && npm-run-all --parallel prod:build-*",
+    "prod:build-server": "webpack --config ./webpack/webpack.server.js",
+    "prod:build-client": "webpack --config ./webpack/webpack.client.js"
   },
   "author": "",
   "license": "ISC",

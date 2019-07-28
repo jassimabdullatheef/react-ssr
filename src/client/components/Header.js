@@ -3,7 +3,6 @@ import { connect } from 'react-redux'
 import { Link } from 'react-router-dom'
 
 const Header = ({auth}) => {
-  console.log('My auth is', auth)
   return (
     <div>
       <ul>
@@ -11,7 +10,10 @@ const Header = ({auth}) => {
           <Link to="/">Home</Link>
         </li>
         <li>
-          <Link to="/users">Users</Link>
+          <Link to="/users">Users Preloaded</Link>
+        </li>
+        <li>
+          <Link to="/dynamic-users">Users</Link>
         </li>
       </ul>
     </div>

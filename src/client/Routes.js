@@ -1,15 +1,22 @@
 import React from 'react'
+import loadable from '@loadable/component'
 
-import HomePage from './pages/HomePage'
+
 import App from './App'
-import UserListPage from './pages/UsersListPage'
+import UsersListPage from './pages/UsersListPage'
+import HomePage from './pages/HomePage'
+
+const DynamicUsers = loadable(() => import('./pages/DynamicUsers'), {
+  fallback: <div>Loading...</div>,
+});
 
 export default [
   {
     ...App,
     routes: [
       { component: HomePage, path: '/', exact: true },
-      { component: UserListPage, path: '/users' }
+      { component: UsersListPage, path: '/users' },
+      { component: DynamicUsers, path: '/dynamic-users' }
     ]
   }
 ]
